@@ -79,7 +79,7 @@ class Route implements IRoute
             $this->Route,
             $parts
         )) {
-            $this->Methods = isset($parts['methods']) ? explode('|', trim($parts['methods'])) : null;
+            $this->Methods = !empty($parts['methods']) ? explode('|', trim($parts['methods'])) : null;
             $path = $parts['path'];
         } else {
             throw new \InvalidArgumentException(
@@ -219,6 +219,11 @@ class Route implements IRoute
      */
     public function reverse($parameters = array())
     {
+        // Check if route is compiled
+        if ($this->Path === null) {
+            $this->compile();
+        }
+        
         $url = preg_replace_callback(
             '~(/|\.|)\[([^:\]]*+)(?::([^:\]]*+))?\](\?|)~',
             function ($part) use ($parameters) {
@@ -232,7 +237,7 @@ class Route implements IRoute
 
                 // Return parameter
                 if (array_key_exists($name, $parameters)) {
-                    return $sep . $parameters;
+                    return $sep . $parameters[$name];
 
                 // Else check if parameter was optional
                 } elseif ($optional != '?') {
