@@ -2,7 +2,7 @@
     "name": "elzekool/koolrouter",
     "license": "MIT",
     "description": "Fast and flexible PHP5.3+ router with RESTfull support and reverse routing.",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "keywords": ["library", "routing","router", "rest"],
     "homepage" : "https://github.com/elzekool/KoolRouter",
     "authors": [
