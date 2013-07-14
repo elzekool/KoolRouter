@@ -12,7 +12,7 @@ provides these features.
 
 ## Starting with KoolRouter
 1. Make sure PHP 5.3.* is installed
-2. Install KoolRouter using Composer or manually
+2. Install KoolRouter using [Composer](https://github.com/elzekool/KoolRouter#composer) or manually
 3. Make KoolRouter handle your requests (for example trough URL Rewriting)
 
 ## Supported Routes
@@ -67,6 +67,18 @@ $route = $router->reverse('page_view', array(
 
 ```
 
+## Composer
+* Get [Composer](http://getcomposer.org/)
+* Add `elzekool/koolrouter` to your `composer.json` file:
+
+```json
+{
+    "require": {
+        "elzekool/koolrouter": "0.*"
+    }
+}
+```
+* Install/update your dependencies with: `php composer.phar install`
 
 ## License
 
